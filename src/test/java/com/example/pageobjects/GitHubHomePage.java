@@ -1,5 +1,8 @@
 package com.example.pageobjects;
 
+import com.example.setup.PageLoad;
+import org.openqa.selenium.By;
+
 /**
  * Page object GitHub home page.
  *
@@ -29,6 +32,9 @@ public class GitHubHomePage extends GitHubPage<GitHubHomePage> {
 
 	@Override
 	protected void isLoaded() throws Error {
+		if(!PageLoad.isElementIsClickable(By.cssSelector("input[name='user[login]']"))) {
+			throw new Error("Home page was not successfully loaded");
+		}
 
 	}
 }

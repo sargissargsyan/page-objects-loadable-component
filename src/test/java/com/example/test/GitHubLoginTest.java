@@ -17,12 +17,13 @@ public class GitHubLoginTest {
 	}
 
 	@Test
-	public void should_not_login_with_wrong_credentials() {
-		//given
-		GitHubLoginPage loginPage = new GitHubHomePage().open().goToLoginPage();
-		//when
+	public void shouldNotLoginWithWrongCredentials() {
+		//navigate to login page
+		GitHubHomePage homePage = new GitHubHomePage().open().get();
+		GitHubLoginPage loginPage = homePage.goToLoginPage().get();
+		//try to login
 		loginPage.login("user", "password");
-		//then
+		//assert there is an error message
 		assertTrue(loginPage.isLoginError());
 	}
 }

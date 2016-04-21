@@ -53,7 +53,7 @@ public class GitHubLoginPage extends GitHubPage<GitHubLoginPage> {
 
 	@Override
 	protected void isLoaded() throws Error {
-		if(!PageLoad.isElementIsClickable(By.className("input[id='login_field']"))) {
+		if(!PageLoad.isElementIsClickable(By.cssSelector("input[id='login_field']"))) {
 			throw new Error("Login page was not successfully loaded");
 		}
 	}

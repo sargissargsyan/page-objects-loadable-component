@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
  * Created by Sargis on 4/3/16.
  */
 
-public abstract class GitHubPage<T> extends CustomLoadableComponent {
+public abstract class GitHubPage<T extends CustomLoadableComponent<T>> extends CustomLoadableComponent<T> {
 
 	private static final String BASE_URL = "https://github.com";
 
