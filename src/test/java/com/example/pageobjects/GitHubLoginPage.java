@@ -14,47 +14,47 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class GitHubLoginPage extends GitHubPage<GitHubLoginPage> {
 
-	@FindBy(id = "login_field")
-	WebElement loginField;
+    @FindBy(id = "login_field")
+    WebElement loginField;
 
-	@FindBy(name = "password")
-	WebElement passwordField;
+    @FindBy(name = "password")
+    WebElement passwordField;
 
-	@FindBy(name = "commit")
-	WebElement commitButton;
+    @FindBy(name = "commit")
+    WebElement commitButton;
 
-	@FindBy(className = "flash-error")
-	WebElement errorBox;
+    @FindBy(className = "flash-error")
+    WebElement errorBox;
 
-	@Override
-	public String getPageUrl() {
-		return "/login";
-	}
+    @Override
+    public String getPageUrl() {
+        return "/login";
+    }
 
-	public void login(String login, String password) {
-		loginField.sendKeys(login);
-		passwordField.sendKeys(password);
-		commitButton.click();
+    public void login(String login, String password) {
+        loginField.sendKeys(login);
+        passwordField.sendKeys(password);
+        commitButton.click();
 
-	}
+    }
 
-	public boolean isLoginError() {
-		return errorBox.isDisplayed();
-	}
+    public boolean isLoginError() {
+        return errorBox.isDisplayed();
+    }
 
-	public String getErrorMessage() {
-		return errorBox.getText();
-	}
+    public String getErrorMessage() {
+        return errorBox.getText();
+    }
 
-	@Override
-	protected void load() {
+    @Override
+    protected void load() {
 
-	}
+    }
 
-	@Override
-	protected void isLoaded() throws Error {
-		if(!PageLoad.isElementIsClickable(By.cssSelector("input[id='login_field']"))) {
-			throw new Error("Login page was not loaded successfully!");
-		}
-	}
+    @Override
+    protected void isLoaded() throws Error {
+        if (!PageLoad.isElementIsClickable(By.cssSelector("input[id='login_field']"))) {
+            throw new Error("Login page was not loaded successfully!");
+        }
+    }
 }

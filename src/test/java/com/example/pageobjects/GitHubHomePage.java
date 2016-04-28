@@ -12,29 +12,29 @@ import org.openqa.selenium.By;
 public class GitHubHomePage extends GitHubPage<GitHubHomePage> {
 
 
-	@Override
-	public String getPageUrl() {
-		return "";
-	}
+    @Override
+    public String getPageUrl() {
+        return "";
+    }
 
-	public GitHubLoginPage goToLoginPage() {
-		return new GitHubLoginPage().openPage(GitHubLoginPage.class);
-	}
+    public GitHubLoginPage goToLoginPage() {
+        return new GitHubLoginPage().openPage(GitHubLoginPage.class);
+    }
 
-	public GitHubHomePage open() {
-		return new GitHubHomePage().openPage(GitHubHomePage.class);
-	}
+    public GitHubHomePage open() {
+        return new GitHubHomePage().openPage(GitHubHomePage.class);
+    }
 
-	@Override
-	protected void load() {
+    @Override
+    protected void load() {
 
-	}
+    }
 
-	@Override
-	protected void isLoaded() throws Error {
-		if(!PageLoad.isElementIsClickable(By.cssSelector("input[name='user[login]']"))) {
-			throw new Error("Home page was not loaded successfully!");
-		}
+    @Override
+    protected void isLoaded() throws Error {
+        if (!PageLoad.isElementIsClickable(By.cssSelector("input[name='user[login]']"))) {
+            throw new Error("Home page was not loaded successfully!");
+        }
 
-	}
+    }
 }

@@ -14,14 +14,11 @@ import static com.example.setup.SeleniumDriver.getDriver;
  * Created by Sargis on 4/3/16.
  */
 public class PageLoad {
-    public static boolean isElementIsClickable (By by) {
+    public static boolean isElementIsClickable(By by) {
 
-        try
-        {
+        try {
             new WebDriverWait(getDriver(), 10).until(ExpectedConditions.elementToBeClickable(by));
-        }
-        catch (WebDriverException ex)
-        {
+        } catch (WebDriverException ex) {
             return false;
         }
         return true;

@@ -9,18 +9,18 @@ import com.example.setup.SeleniumBaseTest;
 import org.testng.annotations.Test;
 
 
-public class GitHubLoginTest extends SeleniumBaseTest{
+public class GitHubLoginTest extends SeleniumBaseTest {
 
-	@Test
-	public void shouldNotLoginWithWrongCredentials() {
-		//navigate to login page
-		GitHubHomePage homePage = new GitHubHomePage().open();
-		GitHubLoginPage loginPage = homePage.goToLoginPage();
-		//try to login
-		loginPage.login("user", "password");
-		//assert there is an error message
-		assertTrue(loginPage.isLoginError(), "Error message was not displayed!");
-		assertEquals(loginPage.getErrorMessage(), "Incorrect username or password.", "Error message was incorrect!");
-	}
+    @Test
+    public void shouldNotLoginWithWrongCredentials() {
+        //navigate to login page
+        GitHubHomePage homePage = new GitHubHomePage().open();
+        GitHubLoginPage loginPage = homePage.goToLoginPage();
+        //try to login
+        loginPage.login("user", "password");
+        //assert there is an error message
+        assertTrue(loginPage.isLoginError(), "Error message was not displayed!");
+        assertEquals(loginPage.getErrorMessage(), "Incorrect username or password.", "Error message was incorrect!");
+    }
 
 }
