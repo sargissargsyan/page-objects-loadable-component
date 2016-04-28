@@ -18,7 +18,7 @@ public abstract class GitHubPage<T extends CustomLoadableComponent<T>> extends C
 	public T openPage(Class<T> clazz) {
 		T page = PageFactory.initElements(getDriver(), clazz);
 		getDriver().get(BASE_URL + getPageUrl());
-		return page;
+		return page.get();
 	}
 
 	/**

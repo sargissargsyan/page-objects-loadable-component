@@ -33,7 +33,7 @@ public class GitHubHomePage extends GitHubPage<GitHubHomePage> {
 	@Override
 	protected void isLoaded() throws Error {
 		if(!PageLoad.isElementIsClickable(By.cssSelector("input[name='user[login]']"))) {
-			throw new Error("Home page was not successfully loaded");
+			throw new Error("Home page was not loaded successfully!");
 		}
 
 	}
