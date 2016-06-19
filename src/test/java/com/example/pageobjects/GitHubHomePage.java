@@ -3,14 +3,20 @@ package com.example.pageobjects;
 import com.example.setup.PageLoad;
 import org.openqa.selenium.By;
 
+import static com.example.setup.SeleniumDriver.getDriver;
+
 /**
  * Page object GitHub home page.
  *
  * Created by Sargis on 4/3/16.
  */
 
-public class GitHubHomePage extends GitHubPage<GitHubHomePage> {
+public class GitHubHomePage extends BaseObjectPage<GitHubHomePage> {
 
+
+    public GitHubHomePage() {
+        super(getDriver());
+    }
 
     @Override
     public String getPageUrl() {

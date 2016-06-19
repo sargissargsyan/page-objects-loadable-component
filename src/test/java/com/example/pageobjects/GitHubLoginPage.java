@@ -4,15 +4,15 @@ import com.example.setup.PageLoad;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static com.example.setup.SeleniumDriver.getDriver;
 
 /**
  * Page object GitHub login page
  *
  * Created by Sargis on 4/3/16.
  */
-public class GitHubLoginPage extends GitHubPage<GitHubLoginPage> {
+public class GitHubLoginPage extends BaseObjectPage<GitHubLoginPage> {
 
     @FindBy(id = "login_field")
     WebElement loginField;
@@ -26,20 +26,23 @@ public class GitHubLoginPage extends GitHubPage<GitHubLoginPage> {
     @FindBy(className = "flash-error")
     WebElement errorBox;
 
+    public GitHubLoginPage() {
+        super(getDriver());
+    }
+
     @Override
     public String getPageUrl() {
         return "/login";
     }
 
     public void login(String login, String password) {
-        loginField.sendKeys(login);
-        passwordField.sendKeys(password);
-        commitButton.click();
-
+        type(loginField, login);
+        type(passwordField, password);
+        click(commitButton);
     }
 
     public boolean isLoginError() {
-        return errorBox.isDisplayed();
+        return isElementDisplayed(errorBox);
     }
 
     public String getErrorMessage() {

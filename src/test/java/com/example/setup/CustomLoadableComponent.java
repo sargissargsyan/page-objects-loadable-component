@@ -1,5 +1,6 @@
 package com.example.setup;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -14,6 +15,7 @@ import static com.example.setup.SeleniumDriver.getDriver;
  * Created by sargis on 4/3/16.
  */
 public abstract class CustomLoadableComponent<T extends CustomLoadableComponent<T>> {
+    private WebDriver driver;
 
     private static final int LOAD_TIMEOUT = 30;
     private static final int REFRESH_RATE = 2;
