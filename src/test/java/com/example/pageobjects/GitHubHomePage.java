@@ -1,6 +1,6 @@
 package com.example.pageobjects;
 
-import com.example.setup.PageLoad;
+import com.example.setup.PageLoadHelper;
 import org.openqa.selenium.By;
 
 import static com.example.setup.SeleniumDriver.getDriver;
@@ -38,9 +38,8 @@ public class GitHubHomePage extends BaseObjectPage<GitHubHomePage> {
 
     @Override
     protected void isLoaded() throws Error {
-        if (!PageLoad.isElementIsClickable(By.cssSelector("input[name='user[login]']"))) {
-            throw new Error("Home page was not loaded successfully!");
-        }
-
+        PageLoadHelper.isLoaded().
+                isElementIsVisible(By.cssSelector("input[name='user[login]']")).
+                isElementIsClickable(By.cssSelector("input[name='user[login]']"));
     }
 }

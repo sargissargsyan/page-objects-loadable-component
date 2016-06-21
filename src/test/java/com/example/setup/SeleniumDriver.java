@@ -14,7 +14,7 @@ public class SeleniumDriver {
 
 	public static WebDriver getDriver() {
 		if (driver == null) {
-			driver = new FirefoxDriver();	//can be replaced with HtmlUnitDriver for better performance
+			driver = new FirefoxDriver();
 		}
 		return driver;
 	}

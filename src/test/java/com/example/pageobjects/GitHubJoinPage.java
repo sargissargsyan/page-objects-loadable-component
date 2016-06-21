@@ -1,6 +1,6 @@
 package com.example.pageobjects;
 
-import com.example.setup.PageLoad;
+import com.example.setup.PageLoadHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -38,6 +38,9 @@ public class GitHubJoinPage extends BaseObjectPage<GitHubJoinPage> {
         click(joinButton);
     }
 
+    public boolean isLoginError() {
+        return isElementDisplayed(errorBox);
+    }
 
     @Override
     public String getPageUrl() {
@@ -49,18 +52,11 @@ public class GitHubJoinPage extends BaseObjectPage<GitHubJoinPage> {
 
     }
 
-//    public GitHubJoinPage openPage() {
-//        return new GitHubJoinPage().openPage(GitHubJoinPage.class);
-//    }
-
-    public boolean isLoginError() {
-        return isElementDisplayed(errorBox);
-    }
 
     @Override
     protected void isLoaded() throws Error {
-        if (!PageLoad.isElementIsClickable(By.cssSelector("input[id='user_login']"))) {
-            throw new Error("Join page was not loaded successfully!");
-        }
+        PageLoadHelper.isLoaded().
+                isElementIsVisible(By.cssSelector("input[id='user_login']")).
+                isElementIsClickable(By.cssSelector("input[id='user_login']"));
     }
 }

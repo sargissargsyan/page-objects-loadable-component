@@ -14,5 +14,4 @@ public class SeleniumBaseTest {
     public static void tearDown() {
         getDriver().close();
     }
-
 }

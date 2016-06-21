@@ -1,6 +1,6 @@
 package com.example.pageobjects;
 
-import com.example.setup.PageLoad;
+import com.example.setup.PageLoadHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,8 +56,8 @@ public class GitHubLoginPage extends BaseObjectPage<GitHubLoginPage> {
 
     @Override
     protected void isLoaded() throws Error {
-        if (!PageLoad.isElementIsClickable(By.cssSelector("input[id='login_field']"))) {
-            throw new Error("Login page was not loaded successfully!");
-        }
+        PageLoadHelper.isLoaded().
+                isElementIsVisible(By.cssSelector("#login_field")).
+                isElementIsClickable(By.cssSelector("#login_field"));
     }
 }

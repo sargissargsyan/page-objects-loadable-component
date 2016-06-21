@@ -54,16 +54,6 @@ public abstract class BaseObjectPage<T extends CustomLoadableComponent<T>> exten
         element.click();
     }
 
-//    @Override
-//    protected void load() {
-//
-//    }
-//
-//    @Override
-//    protected void isLoaded() throws Error {
-
-//    }
-
     public boolean isElementDisplayed(WebElement element) {
         try {
            return element.isDisplayed();
